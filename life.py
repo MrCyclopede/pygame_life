@@ -5,13 +5,12 @@ from pygame.locals import *
 import math
 import random
 
-FPS = 20.0
+FPS = 10.0
 WIDTH, HEIGHT = 1920, 1080
 SIZE = 10
 PAUSE = True
 STEP = False
 alives = set()
-x_start, y_start = 0, 0
         
 def get_neighbours(cell):
     neighbours = [
@@ -104,14 +103,7 @@ def update(dt):
             elif event.key == K_s:
                 STEP = True
                 print("Step")
-        elif event.type == pygame.MOUSEWHEEL:
-            x, y = pygame.mouse.get_pos()
-            
-            if event.y > 0:
-                if SIZE > 1:
-                    SIZE -= 1
-            else:
-                SIZE += 1
+                
         elif event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
                 
@@ -137,7 +129,6 @@ def draw(screen):
     for cell in alives:
         x = cell[0]
         y = cell[1]
-        # color = (math.floor(abs(x) / max_x * 255), math.floor(abs(y) / max_y * 255), math.floor(abs(y + x)  / (max_y + max_x) * 255))
         color = (math.floor(abs(x) / max_x * 255), math.floor(abs(y) / max_y * 255), 0)
         if x > 0 and x <= max_x and y > 0 and y <= max_y:
             screen.fill(color, (cell[0] * SIZE, cell[1] * SIZE, SIZE, SIZE))
@@ -151,7 +142,6 @@ def run():
 
     screen = pygame.display.set_mode((WIDTH, HEIGHT), flags = pygame.NOFRAME, display = 2)
     # generate_random(25)
-    
     
     while True:
         dt = 1/FPS
