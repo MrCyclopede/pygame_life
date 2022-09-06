@@ -13,6 +13,6 @@ r: Fill the screen with random alive cells
 up/down arrow: increases or decreases simulation speed 
 
 
-<img src="/doc/closeup.gif" width="250" height="250"/>
-<img src="/doc/random.gif" width="250" height="250"/>
+<img src="/gifs/closeup.gif" width="50%" height="50%"/>
+<img src="/gifs/random.gif" width="50%" height="50%"/>
 
